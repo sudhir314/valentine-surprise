@@ -1,0 +1,192 @@
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Surprise for My Betu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            width: 100vw; height: 100vh;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .heart-bg {
+            position: absolute; top: -10%; color: rgba(255, 255, 255, 0.6);
+            font-size: 20px; animation: flow 5s linear infinite; z-index: 1; pointer-events: none;
+        }
+        @keyframes flow {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 35px 25px; border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 400px; width: 85%;
+            z-index: 10; border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; color: #d61e5c; font-size: 32px; margin-bottom: 20px; }
+        
+        .love-msg {
+            font-size: 14px; color: #444; line-height: 1.6;
+            background: rgba(255, 77, 109, 0.05); padding: 15px;
+            border-radius: 15px; text-align: left; white-space: pre-wrap;
+            margin-bottom: 20px; max-height: 250px; overflow-y: auto;
+        }
+
+        .btn-container { margin-top: 20px; height: 100px; position: relative; display: flex; justify-content: center; align-items: center; }
+        button { padding: 12px 25px; border: none; border-radius: 50px; cursor: pointer; font-size: 16px; font-weight: 600; transition: transform 0.2s; }
+        .primary-btn { background: #ff4d6d; color: white; box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3); }
+        
+        /* Fixed Shuffling No Button */
+        #noBtn { 
+            background: #888; color: white; 
+            position: fixed; z-index: 9999; 
+            transition: all 0.15s ease-out;
+            left: 55%; /* Initial position */
+        }
+
+        .viewer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 100; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .viewer img, .viewer video { max-width: 95%; max-height: 75vh; border-radius: 10px; }
+
+        .controls {
+            position: absolute; bottom: 30px; width: 100%;
+            display: flex; justify-content: center; gap: 15px; padding: 0 10px;
+        }
+        .nav-btn { background: rgba(255,255,255,0.3); color: white; border: 1px solid white; padding: 10px 15px; border-radius: 10px; font-size: 14px; backdrop-filter: blur(5px); }
+        .counter { position: absolute; top: 30px; color: white; font-weight: bold; font-size: 18px; letter-spacing: 2px; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div id="page1" class="container">
+        <h1>Will you be my Valentine forever Betu? ❤️</h1>
+        <div class="btn-container">
+            <button class="primary-btn" onclick="showPage('page2')">YES</button>
+            <button id="noBtn" onmouseover="moveNo()" onclick="moveNo()">NO</button>
+        </div>
+    </div>
+
+    <div id="page2" class="container hidden">
+        <h1>I Knew it! 😘</h1>
+        <div class="love-msg">Happy Valentine Day meri jn ❤️
+ Happy Valentine Day meri jn ❤️
+​Aje ke din bs yhi bolna chahta hu ki tu meri life ki sbse bdi khushi h pta nhi me hmesha jta pata hu ya nhi  pr sach ye h ki tere bina main kuch bhi nahi hu Tu meri jaan hai mera sab kuch hai or me ni chahta ki ageh se tu ya me kisi or ki vjeh se ldai kre bacha ham oro ko chod skhte h ek dusre ko nhi toh kisi or ki sunke na ldana ageh se bacha or koi kuch bole usko ignore krna  h  apne ko ni ldana betu thik h mera bacha h tu chotu sa  ​me chahta hu ki hmara har sal ase hi bete or me tujhe har din phle se zyda pyr karun Thank you bacha mujhe itna bdiya  feel krane ke liye or hmesha mera sath dene ke liye me promise krta hu ki hmesha tere face pr smile rkhne ki koshish krunga
+​I Love You So Much 😘 ❤️ 💓 betu mere dhungo meri rasmlai mere bacha  aur me apko  bhot sara pyr krta hu 😘🌹❤️</div>
+        <button class="primary-btn" style="width:100%" onclick="startPhotos()">Kya tum hamari yaadon ko yaad karna chahogi? ❤️</button>
+    </div>
+
+    <div id="photo-viewer" class="viewer hidden">
+        <div class="counter" id="p-count">1/5</div>
+        <img id="main-photo" src="p1.jpg">
+        <div class="controls">
+            <button class="nav-btn" onclick="changePhoto(-1)">Back</button>
+            <button class="nav-btn" onclick="changePhoto(1)">Next</button>
+        </div>
+    </div>
+
+    <div id="page4" class="container hidden">
+        <h1>Bhot Pyari Yaadein Hain na? ❤️</h1>
+        <button class="primary-btn" style="width:100%" onclick="startVideos()">Kya tum un yaadon mein gum hona chahte ho? 🎥</button>
+    </div>
+
+    <div id="video-viewer" class="viewer hidden">
+        <div class="counter" id="v-count">1/5</div>
+        <video id="main-video" controls playsinline webkit-playsinline>
+            <source src="v1.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button class="nav-btn" onclick="changeVideo(-1)">Previous</button>
+            <button class="nav-btn" onclick="changeVideo(1)">Next Video</button>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg'); heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }, 400);
+
+        function showPage(id) {
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        // Improved Shuffle Logic for No Button
+        function moveNo() {
+            const btn = document.getElementById('noBtn');
+            const padding = 20;
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - (padding * 2)) + padding;
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - (padding * 2)) + padding;
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        let pIdx = 1;
+        function startPhotos() {
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('photo-viewer').classList.remove('hidden');
+        }
+        function changePhoto(step) {
+            pIdx += step;
+            if(pIdx < 1) pIdx = 1;
+            if(pIdx <= 5) {
+                document.getElementById('main-photo').src = `p${pIdx}.jpg`;
+                document.getElementById('p-count').innerText = `${pIdx}/5`;
+            } else {
+                document.getElementById('photo-viewer').classList.add('hidden');
+                showPage('page4');
+            }
+        }
+
+        let vIdx = 1;
+        const vPlayer = document.getElementById('main-video');
+        function startVideos() {
+            document.getElementById('page4').classList.add('hidden');
+            document.getElementById('video-viewer').classList.remove('hidden');
+            vPlayer.play();
+        }
+        function changeVideo(step) {
+            vIdx += step;
+            if(vIdx < 1) vIdx = 1;
+            if(vIdx <= 5) {
+                vPlayer.src = `v${vIdx}.mp4`;
+                document.getElementById('v-count').innerText = `${vIdx}/5`;
+                vPlayer.play();
+            } else {
+                alert("I Love You So Much Meri Rasmalai! ❤️");
+                location.reload();
+            }
+        }
+        vPlayer.onended = () => changeVideo(1);
+    </script>
+</body>
+</html>
+ 
+ 
+ 
+ 
+ 
+ 
